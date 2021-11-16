@@ -16,27 +16,29 @@ class QuickReplies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        SingleChildScrollView(
-          scrollDirection: quickReplyOptions.quickReplyScrollDirection ?? Axis.horizontal,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: quickReplies.map((QuickReply r) {
-                return quickReplyOptions.quickReplyBuilder != null
-                    ? quickReplyOptions.quickReplyBuilder!(r)
-                    : DefaultQuickReply(
-                        quickReply: r,
-                        quickReplyOptions: quickReplyOptions,
-                      );
-              }).toList(),
-            ),
-          ),
-        ),
-      ],
-    );
+    return quickReplyOptions.quickReplyContainerBuilder != null
+        ? quickReplyOptions.quickReplyContainerBuilder!(quickReplies)
+        : Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SingleChildScrollView(
+                scrollDirection: quickReplyOptions.quickReplyScrollDirection ?? Axis.horizontal,
+                child: Padding(
+                  padding: const EdgeInsets.all(0),
+                  child: Column(
+                    children: quickReplies.map((QuickReply r) {
+                      return quickReplyOptions.quickReplyBuilder != null
+                          ? quickReplyOptions.quickReplyBuilder!(r)
+                          : DefaultQuickReply(
+                              quickReply: r,
+                              quickReplyOptions: quickReplyOptions,
+                            );
+                    }).toList(),
+                  ),
+                ),
+              ),
+            ],
+          );
   }
 }

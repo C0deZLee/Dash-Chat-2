@@ -10,6 +10,7 @@ class QuickReplyOptions {
     this.quickReplyTextStyle,
     this.quickReplyBuilder,
     this.quickReplyScrollDirection,
+    this.quickReplyContainerBuilder,
   });
 
   /// Function to call when the user click on a quick reply
@@ -33,4 +34,7 @@ class QuickReplyOptions {
 
   /// Builder to create your own quickReply builder
   final Widget Function(QuickReply)? quickReplyBuilder;
+
+  /// Builder to create your own quickReply container builder
+  final Widget Function(List<QuickReply>)? quickReplyContainerBuilder;
 }
