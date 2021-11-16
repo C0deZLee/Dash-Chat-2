@@ -21,7 +21,7 @@ class QuickReplies extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
+          scrollDirection: quickReplyOptions.quickReplyScrollDirection ?? Axis.horizontal,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(

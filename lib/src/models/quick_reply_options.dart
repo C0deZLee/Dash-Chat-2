@@ -9,6 +9,7 @@ class QuickReplyOptions {
     this.quickReplyStyle,
     this.quickReplyTextStyle,
     this.quickReplyBuilder,
+    this.quickReplyScrollDirection,
   });
 
   /// Function to call when the user click on a quick reply
@@ -20,6 +21,9 @@ class QuickReplyOptions {
 
   /// Margin of a quick reply container
   final EdgeInsets? quickReplyMargin;
+
+  /// Margin of a quick reply container
+  final Axis? quickReplyScrollDirection;
 
   /// BoxDecoration of a quick reply container
   final BoxDecoration? quickReplyStyle;
